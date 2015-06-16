@@ -1,9 +1,10 @@
 package vhs_producoes;
 
 public class Funcionario {
-    String nome, endereco, tel, email, cpf, rg, carteira,cargo, id,senha,login;
+    int id;
+    String nome, endereco, tel, email, cpf, rg, carteira, cargo, senha, login;
 
-    public Funcionario(String nome, String endereco, String tel, String email, String cpf, String rg, String carteira, String cargo, String id) {
+    public Funcionario(String nome, String endereco, String tel, String email, String cpf, String rg, String carteira, String cargo, int id, String login ,String senha) {
         this.nome = nome;
         this.endereco = endereco;
         this.tel = tel;
@@ -81,21 +82,21 @@ public class Funcionario {
         this.cargo = cargo;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
-    public void getSenha(String senha){
-        this.senha=senha;
+    public String getSenha(){
+        return senha;
     }
     public  void setSenha(String senha){
         this.senha= senha;
     }
-    public void getlogin(String login){
-        this.login=login;
+    public String getlogin(){
+        return login;
         
     }
     public void setlogin(String login){
@@ -103,7 +104,7 @@ public class Funcionario {
     }
     
 
-    public Funcionario(String nome, String endereco, String tel, String email, String cpf, String rg, String carteira, String cargo) {
+    public Funcionario(String nome, String endereco, String tel, String email, String cpf, String rg, String carteira, String cargo,String login ,String senha ) {
         this.nome = nome;
         this.endereco = endereco;
         this.tel = tel;
@@ -112,6 +113,9 @@ public class Funcionario {
         this.rg = rg;
         this.carteira = carteira;
         this.cargo = cargo;
+        this.login= login;
+        this.senha= senha;        
+       
     }
 
     public Funcionario(String cargo ,String login ,String senha) {

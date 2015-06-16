@@ -5,13 +5,13 @@
 package View.Funcionario;
 
 import Controler.FilmagemC;
-import Model.Filmagem;
 import View.Funcionario.Atualiza.AtualizarF;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import vhs_producoes.Filmagem;
 
 /**
  *
@@ -154,7 +154,7 @@ public class FilmagemCon extends javax.swing.JFrame {
             lista = f.getAll();
             int linha = 0, coluna = 0;
             for (Filmagem lista1 : lista) {
-                tabelaF.setValueAt(lista1.getId(), linha, coluna );
+                tabelaF.setValueAt(lista1.getIdFilmagem(), linha, coluna );
                 tabelaF.setValueAt(lista1.getData_entrega(), linha, coluna + 1);
                 tabelaF.setValueAt(lista1.getDescr_filmagem(), linha, coluna + 2);
  

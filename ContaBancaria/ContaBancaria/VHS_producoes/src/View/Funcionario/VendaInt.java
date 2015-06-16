@@ -5,10 +5,10 @@
 package View.Funcionario;
 
 import Controler.VendaC;
-import Model.Venda;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import vhs_producoes.Venda;
 
 /**
  *

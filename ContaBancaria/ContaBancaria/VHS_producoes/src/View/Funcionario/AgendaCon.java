@@ -4,17 +4,14 @@
  */
 package View.Funcionario;
 
-import View.Funcionario.Atualiza.AgendaAt;
 import Controler.AgendaC;
-import Model.Agenda;
-import Util.Util;
+import View.Funcionario.Atualiza.AgendaAt;
 import java.security.Principal;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import vhs_producoes.Agenda;
 
 /**
  *

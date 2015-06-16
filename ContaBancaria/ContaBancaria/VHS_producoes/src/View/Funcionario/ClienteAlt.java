@@ -5,13 +5,13 @@
 package View.Funcionario;
 
 import Controler.ClienteC;
-import Model.Cliente;
 import View.Funcionario.Atualiza.AtualizarC;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import vhs_producoes.Cliente;
 
 /**
  *

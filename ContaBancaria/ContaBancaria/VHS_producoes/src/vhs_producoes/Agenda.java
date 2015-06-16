@@ -1,13 +1,13 @@
 package vhs_producoes;
 
 public class Agenda {
-    String locla_gravacao, hora, data, tipo_gravacao;
+    String local_gravacao, hora, data, tipo_gravacao;
     int ID_agenda, idFilmagem;
    
    
 
-    public Agenda(String locla_gravacao, String hora, String data, String tipo_gravacao, int ID_agenda, int idFilmagem) {
-        this.locla_gravacao = locla_gravacao;
+    public Agenda(String local_gravacao, String hora, String data, String tipo_gravacao, int ID_agenda, int idFilmagem) {
+        this.local_gravacao = local_gravacao;
         this.hora = hora;
         this.data = data;
         this.tipo_gravacao = tipo_gravacao;
@@ -64,8 +64,8 @@ public class Agenda {
     }
      
 
-    public Agenda(String locla_gravacao, String hora, String data, String tipo_gravacao) {
-        this.locla_gravacao = locla_gravacao;
+    public Agenda(String local_gravacao, String hora, String data, String tipo_gravacao) {
+        this.local_gravacao = local_gravacao;
         this.hora = hora;
         this.data = data;
         this.tipo_gravacao = tipo_gravacao;

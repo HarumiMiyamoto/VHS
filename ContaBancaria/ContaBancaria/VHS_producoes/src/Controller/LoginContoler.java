@@ -34,7 +34,6 @@ public class LoginContoler {
     }
     
     //select senha from cadastro_usuario where login = USUARIO_QUE_VOCE_DIGITOU 
-    //select senha from cadastro_usuario where login = USUARIO_QUE_VOCE_DIGITOU  
     //    ResultSet rs // ...  
     //if(rs.next()){ // se tiver correto entra  
     // código caso o login esteja correto  
@@ -46,7 +45,7 @@ rs = stmt.executeQuery();
 /*//metodo que verifica o login  
 public Boolean login(String usuario, String senha){  
      boolean existe = false;  
-     PreparedStatement stm = conexao.prepareStatement("SELECT * FROM usuarios WHERE login = ? AND password = ?");  
+     PreparedStatement stm = conexao.prepareStatement("SELECT * FROM usuarios WHERE login =" + AND password = ?");  
      stm.setString(1, usuario);  
      stm.setString(2, senha);  
      ResultSet rs = stm.executeQuery();  

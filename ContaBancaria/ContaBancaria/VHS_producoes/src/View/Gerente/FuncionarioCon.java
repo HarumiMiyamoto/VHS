@@ -4,6 +4,15 @@
  */
 package View.Gerente;
 
+import Controler.FuncionarioC;
+import View.Funcionario.Atualiza.AtualizarFU;
+import java.security.Principal;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import vhs_producoes.Funcionario;
+
 /**
  *
  * @author info206
@@ -28,7 +37,7 @@ public class FuncionarioCon extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabela = new javax.swing.JTable();
+        tabelaF = new javax.swing.JTable();
         listar = new javax.swing.JButton();
         voltar = new javax.swing.JButton();
         atualizar = new javax.swing.JButton();
@@ -38,34 +47,34 @@ public class FuncionarioCon extends javax.swing.JFrame {
 
         jLabel1.setText("CONSULTAR FUNCIONARIO");
 
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaF.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "NOME", "ENDEREÇO", "TELEFONE", "RG", "CPF", "CARTEIRA ", "CARGO"
+                "ID", "NOME", "ENDEREÇO", "TELEFONE", "RG", "CPF", "CARTEIRA ", "CARGO", "LOGIN", "SENHA"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tabela);
+        jScrollPane1.setViewportView(tabelaF);
 
         listar.setText("Listar");
         listar.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +91,11 @@ public class FuncionarioCon extends javax.swing.JFrame {
         });
 
         atualizar.setText("Atualizar");
+        atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarActionPerformed(evt);
+            }
+        });
 
         sair.setText("Sair");
         sair.addActionListener(new java.awt.event.ActionListener() {
@@ -97,22 +111,20 @@ public class FuncionarioCon extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(voltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(atualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(listar)
-                        .addGap(63, 63, 63)
+                        .addGap(199, 199, 199)
                         .addComponent(sair)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(129, 129, 129))
+                .addGap(246, 246, 246))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,12 +150,38 @@ public class FuncionarioCon extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarActionPerformed
 
     private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed
-        // TODO add your handling code here:
+        FuncionarioC f = new FuncionarioC();
+        
+         ArrayList<Funcionario> lista;
+        try {
+            lista = f.getAll();
+            int linha = 0, coluna = 0;
+            for (Funcionario lista1 : lista) {
+                tabelaF.setValueAt(lista1.getId(), linha, coluna );
+                tabelaF.setValueAt(lista1.getNome(), linha, coluna + 1);
+                tabelaF.setValueAt(lista1.getEndereco(), linha, coluna + 2);
+                tabelaF.setValueAt(lista1.getTel(), linha, coluna + 3); 
+                tabelaF.setValueAt(lista1.getRg(), linha, coluna + 4);  
+                tabelaF.setValueAt(lista1.getCpf(), linha, coluna + 5);
+                tabelaF.setValueAt(lista1.getCarteira(), linha, coluna + 6);                
+                tabelaF.setValueAt(lista1.getCargo(), linha, coluna + 7);
+                tabelaF.setValueAt(lista1.getlogin(), linha, coluna + 8);   
+                tabelaF.setValueAt(lista1.getSenha(), linha, coluna + 9);                
+                linha++;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_listarActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
        System.exit(0);
     }//GEN-LAST:event_sairActionPerformed
+
+    private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
+       new AtualizarFU().setVisible(true);
+    }//GEN-LAST:event_atualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,7 +223,7 @@ public class FuncionarioCon extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton listar;
     private javax.swing.JButton sair;
-    private javax.swing.JTable tabela;
+    private javax.swing.JTable tabelaF;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

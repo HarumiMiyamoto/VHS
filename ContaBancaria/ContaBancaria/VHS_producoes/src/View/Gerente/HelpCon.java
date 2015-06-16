@@ -4,6 +4,15 @@
  */
 package View.Gerente;
 
+import Controler.HelpC;
+import View.Funcionario.Atualiza.AtualizarH;
+import java.security.Principal;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import vhs_producoes.Help;
+
 /**
  *
  * @author info206
@@ -28,7 +37,7 @@ public class HelpCon extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaH = new javax.swing.JTable();
         listar = new javax.swing.JButton();
         voltar = new javax.swing.JButton();
         atualizar = new javax.swing.JButton();
@@ -38,7 +47,7 @@ public class HelpCon extends javax.swing.JFrame {
 
         jLabel1.setText("CONSULTAR HELP");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaH.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -65,9 +74,14 @@ public class HelpCon extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelaH);
 
         listar.setText("Listar");
+        listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarActionPerformed(evt);
+            }
+        });
 
         voltar.setText("<--");
         voltar.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +91,11 @@ public class HelpCon extends javax.swing.JFrame {
         });
 
         atualizar.setText("Atualizar");
+        atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarActionPerformed(evt);
+            }
+        });
 
         sair.setText("Sair");
         sair.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +153,27 @@ public class HelpCon extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_sairActionPerformed
 
+    private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed
+        HelpC h = new HelpC();
+         ArrayList<Help> lista;
+        try {
+            lista = h.getAll();
+            int linha = 0, coluna = 0;
+            for (Help lista1 : lista) {
+                tabelaH.setValueAt(lista1.getId(), linha, coluna );
+                tabelaH.setValueAt(lista1.getTipo(), linha, coluna + 1);
+                linha++;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_listarActionPerformed
+
+    private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
+        new AtualizarH().setVisible(true);
+    }//GEN-LAST:event_atualizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -172,9 +212,9 @@ public class HelpCon extends javax.swing.JFrame {
     private javax.swing.JButton atualizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton listar;
     private javax.swing.JButton sair;
+    private javax.swing.JTable tabelaH;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

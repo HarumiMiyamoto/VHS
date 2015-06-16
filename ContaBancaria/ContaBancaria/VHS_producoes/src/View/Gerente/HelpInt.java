@@ -4,6 +4,12 @@
  */
 package View.Gerente;
 
+import Controler.HelpC;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import vhs_producoes.Help;
+
 /**
  *
  * @author info206
@@ -126,7 +132,14 @@ public class HelpInt extends javax.swing.JFrame {
     }//GEN-LAST:event_limparActionPerformed
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
-        // TODO add your handling code here:
+        Help h = new Help(tipo.getText());
+        
+        HelpC hl = new HelpC();
+        try {
+            hl.InserirHelp(h);
+        } catch (SQLException ex) {
+            Logger.getLogger(HelpInt.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_salvarActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed

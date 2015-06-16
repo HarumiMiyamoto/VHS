@@ -5,12 +5,12 @@
 package View.Funcionario;
 
 import Controler.VendaC;
-import Model.Venda;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import vhs_producoes.Venda;
 
 /**
  *
@@ -48,25 +48,25 @@ public class Vendacon extends javax.swing.JFrame {
 
         tabelaV.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "DATA", "VALOR"
+                "ID VENDA", "ID FUNCIONÁRIO", "ID CLIENTE", "ID FILMAGEM", "DATA", "VALOR"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -144,9 +144,12 @@ public class Vendacon extends javax.swing.JFrame {
             lista = v.getAll();
             int linha = 0, coluna = 0;
             for (Venda lista1 : lista) {
-                tabelaV.setValueAt(lista1.getId(), linha, coluna );
-                tabelaV.setValueAt(lista1.getData(), linha, coluna + 1);
-                tabelaV.setValueAt(lista1.getValor(), linha, coluna + 2);
+                tabelaV.setValueAt(lista1.getIdVendas(), linha, coluna );
+                tabelaV.setValueAt(lista1.getID_funcionario(), linha, coluna + 1);
+                tabelaV.setValueAt(lista1.getID_cliente(), linha, coluna + 2);   
+                tabelaV.setValueAt(lista1.getIdFilmagem(), linha, coluna + 3);                
+                tabelaV.setValueAt(lista1.getData(), linha, coluna + 4);
+                tabelaV.setValueAt(lista1.getValor(), linha, coluna + 5);
 
                 linha++;
             }

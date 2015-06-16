@@ -1,7 +1,6 @@
 
 package Controler;
 
-import Model.Cliente;
 import Util.Util;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import vhs_producoes.Cliente;
 
 public class ClienteC {
      public void InserirCliente(Cliente cl) throws SQLException{
