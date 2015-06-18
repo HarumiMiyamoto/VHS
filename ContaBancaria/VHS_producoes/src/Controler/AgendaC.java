@@ -15,13 +15,14 @@ public class AgendaC {
       public void InserirAgenda(Agenda a) throws SQLException{
         Util c = new Util();
         Connection conexao = c.conecta();
-        String sql = "INSERT INTO Agenda(locla_gravacao, hora, data, tipo_gravacao) VALUES (?, ?, ?, ?) ";
+        String sql = "INSERT INTO Agenda(local_gravacao, hora, data, tipo_gravacao, Filmagem_idFilmagem) VALUES (?, ?, ?, ?, ?) ";
         PreparedStatement statement = conexao.prepareStatement(sql);
 
-        statement.setString(2, a.getLocal_gravacao());
-        statement.setString(3, a.getHora());
-        statement.setString(4, a.getData());
-        statement.setString(5, a.getTipo_gravacao());
+        statement.setString(1, a.getLocal_gravacao());
+        statement.setString(2, a.getHora());
+        statement.setString(3, a.getData());
+        statement.setString(4, a.getTipo_gravacao());
+        statement.setInt(5, a.getIdFilmagem());        
         
         int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0){
@@ -42,7 +43,7 @@ public class AgendaC {
             ResultSet result = statement.executeQuery(sql);
             ArrayList<Agenda> lista = new ArrayList<Agenda>();
             while (result.next()) {
-                Agenda a = new Agenda (result.getString("local_gravacao"), result.getString("hora"), result.getString("data"), result.getString("tipo_gravacao"), result.getInt("id_Filmagem"));// inicializa agenda
+                Agenda a = new Agenda (result.getString("local_gravacao"), result.getString("hora"), result.getString("data"), result.getString("tipo_gravacao"),result.getInt("ID_agenda"), result.getInt("Filmagem_idFilmagem"));// inicializa agenda
                 lista.add(a);
             }
 

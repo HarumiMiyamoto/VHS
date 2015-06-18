@@ -5,7 +5,7 @@
 package View.Funcionario;
 
 import Controler.FilmagemC;
-import View.Funcionario.Atualiza.AtualizarF;
+import View.Atualiza.AtualizarF;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -172,6 +172,7 @@ public class FilmagemCon extends javax.swing.JFrame {
     }//GEN-LAST:event_atualizarActionPerformed
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+        this.dispose();
         new FuncionarioInt2().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 

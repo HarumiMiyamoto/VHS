@@ -5,7 +5,7 @@
 package View.Gerente;
 
 import Controler.HelpC;
-import View.Funcionario.Atualiza.AtualizarH;
+import View.Atualiza.AtualizarH;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -146,6 +146,7 @@ public class HelpCon extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+        this.dispose();
         new GerenteInt().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 
