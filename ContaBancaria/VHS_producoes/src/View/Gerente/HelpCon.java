@@ -24,6 +24,8 @@ public class HelpCon extends javax.swing.JFrame {
      */
     public HelpCon() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**

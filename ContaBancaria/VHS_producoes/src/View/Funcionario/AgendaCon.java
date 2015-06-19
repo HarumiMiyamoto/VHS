@@ -24,6 +24,8 @@ public class AgendaCon extends javax.swing.JFrame {
      */
     public AgendaCon() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**

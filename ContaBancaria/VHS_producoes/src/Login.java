@@ -1,13 +1,14 @@
 
-import Controler.LoginContoler;
 import Util.Util;
 import View.Gerente.FuncionarioInt;
 import View.Gerente.GerenteInt;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import vhs_producoes.Funcionario;
 
 /*
  * To change this template, choose Tools | Templates
@@ -25,6 +26,9 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -38,7 +42,6 @@ public class Login extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         loginInput = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -46,6 +49,10 @@ public class Login extends javax.swing.JFrame {
         acessar = new javax.swing.JButton();
         limpar = new javax.swing.JButton();
         senhaInput = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
+        cargoInput = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -53,8 +60,6 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        jLabel1.setText("LOGIN");
 
         jLabel2.setText(" Login:");
 
@@ -93,53 +98,67 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Cargo:");
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vhs_Clipart_Free.png"))); // NOI18N
+        jLabel6.setText("jLabel6");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(Sair, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(acessar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(limpar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(senhaInput, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(loginInput, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(98, 98, 98))
+                        .addComponent(limpar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cargoInput, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel3)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(22, 22, 22)
+                                    .addComponent(jLabel2)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(senhaInput, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(loginInput, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(163, 163, 163))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(loginInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(senhaInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cargoInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Sair)
-                    .addComponent(acessar)
-                    .addComponent(limpar))
+                    .addComponent(limpar)
+                    .addComponent(acessar))
                 .addContainerGap())
         );
 
@@ -156,44 +175,65 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_SairActionPerformed
 
     private void acessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acessarActionPerformed
-   
-                    try {
-            LoginContoler lgC = new LoginContoler();
-            Funcionario fLogado = null;
+        try {   
 
-            fLogado = lgC.autentica(loginInput.getText(), senhaInput.getSelectedText());
-       
-            if (fLogado!= null){
-                JOptionPane.showConfirmDialog(rootPane, "oppá!!! ");
-                                //verifica permição
-                if
-                    (fLogado.getCargo().equals("gerente")){
-                    //chamar tela gerente aki
-                    this.dispose();
-                    new GerenteInt().setVisible(true);
-                 }
-                else  if(fLogado.getCargo().equals("funcionario")){
-                    //chamar tela funcionario
-                    this.dispose();
-                    new FuncionarioInt().setVisible(true);
-                }  
+            
+        Util util = new Util(); //inicializando minha classe q faz conexão com banco de dados  
+        Connection conexao = util.conecta(); //faz a conexão com banco
+        Statement statement = conexao.createStatement();//usa da conexão para pegar a credencial para acesso ao banco
+       String sql = "SELECT * FROM Funcionario "/*WHERE login like '" + loginInput + "' AND senha like '" + senhaInput + /*"'  AND cargo_trabalho like '" + cargo +"'"*/; //Consulta SQL 
+       ResultSet result = statement.executeQuery(sql);//executa a consulta SQL e agora retoena valores, por isso ResultSet
+       result.first(); 
+             if (loginInput.getText().equals(result.getString("login")) && senhaInput.getText().equals(result.getString("senha")) && cargoInput.getText().equals(result.getString("cargo"))){
+
+                 
+                switch (cargoInput.getText()) {
+                    case "gerente":
+                        //chamar tela gerente aki
+                        this.dispose();
+                        new GerenteInt().setVisible(true);
+                        break;
+                    case "funcionario":
+                        //chamar tela funcionario
+                        this.dispose();
+                        new FuncionarioInt().setVisible(true);
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog (null,"Permissão negada ");
+                        break;
+                }
+             }
                 else{
-                    JOptionPane.showMessageDialog (null,"Permissão negada ");
-                }
-                }
-            //else{
-                    JOptionPane.showMessageDialog (null,"Permissão negada  login ou senha incoreto");
+                  JOptionPane.showMessageDialog (null,"Permissão negada ");
+             }
+            
+         
+       
+       //Funcionario l = null;  //declaração de variavel  funcionario
+        //while (result.next()) {
+          //  l = new Funcionario(result.getString("cargo_trabalho"), result.getString("login"),result.getString("senha"));// inicializa funcionario
+        //}
+        
+        
+
+            //LoginContoler lgC = new LoginContoler();
+            //Funcionario fLogado = lgC.autentica(cargoIput.getText(),loginInput.getText(), senhaInput.getSelectedText());
+       
+
+            }                
+                
           //  JOptionPane.showMessageDialog(null,"seja bem vindo"+ login.getText());
 
             // mecher aki
             //}
-             } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            // } 
                     
         //EVENTO QUE FAZ O CONTROLE DE LOGIN
+             /*LoginContoler lgC = new LoginContoler();
+            Funcionario fLogado = lgC.autentica(loginInput.getText(), senhaInput.getSelectedText());
 
-            /* if (loginInput.getText().equals("") || senhaInput.getText().equals(""))// se login e senha em branco
+                
+             if (.getText().equals("") || senhaInput.getText().equals(""))// se login e senha em branco
                  JOptionPane.showMessageDialog(null,"Campos login e senha são obrigatórios");//mensagem
 
              else //senao
@@ -245,8 +285,12 @@ public class Login extends javax.swing.JFrame {
                        {
                  JOptionPane.showMessageDialog(null, "Problemas de conexão com a base de dados");
 
-               }
-                 }*/
+               }*/
+             
+         catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+         }
+
 
         
     }//GEN-LAST:event_acessarActionPerformed
@@ -300,9 +344,12 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Sair;
     private javax.swing.JButton acessar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField cargoInput;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton limpar;

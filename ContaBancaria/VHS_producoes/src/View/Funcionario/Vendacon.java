@@ -23,6 +23,8 @@ public class Vendacon extends javax.swing.JFrame {
      */
     public Vendacon() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**

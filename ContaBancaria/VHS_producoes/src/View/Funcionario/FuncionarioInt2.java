@@ -15,6 +15,8 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
      */
     public FuncionarioInt2() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**

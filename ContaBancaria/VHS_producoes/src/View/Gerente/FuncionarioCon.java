@@ -24,6 +24,8 @@ public class FuncionarioCon extends javax.swing.JFrame {
      */
     public FuncionarioCon() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**

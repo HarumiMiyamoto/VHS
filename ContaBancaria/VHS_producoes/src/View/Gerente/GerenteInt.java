@@ -16,6 +16,8 @@ public class GerenteInt extends javax.swing.JFrame {
      */
     public GerenteInt() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**

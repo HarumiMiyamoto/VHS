@@ -24,6 +24,8 @@ public class ClienteAlt extends javax.swing.JFrame {
      */
     public ClienteAlt() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**

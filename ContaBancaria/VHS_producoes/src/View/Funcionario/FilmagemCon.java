@@ -24,6 +24,8 @@ public class FilmagemCon extends javax.swing.JFrame {
      */
     public FilmagemCon() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**
