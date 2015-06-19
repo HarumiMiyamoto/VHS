@@ -14,7 +14,7 @@ public class FuncionarioC {
     public void InserirFuncionario(Funcionario f) throws SQLException{
         Util c = new Util();
         Connection conexao = c.conecta();
-        String sql = "INSERT INTO Funcionario(nome, endereco, tel, email, cpf, rg, carteira, cargo, senha, login) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+        String sql = "INSERT INTO Funcionario(nome, endereco, telefone, email_funcionario, cpf_funcionario, rg_funcionario, carteira_trabalho, cargo, senha, login) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
         PreparedStatement statement = conexao.prepareStatement(sql);
 
         statement.setString(1, f.getNome());
@@ -48,7 +48,7 @@ public class FuncionarioC {
             ResultSet result = statement.executeQuery(sql);
             ArrayList<Funcionario> lista = new ArrayList<Funcionario>();
             while (result.next()) {
-                Funcionario f = new Funcionario(result.getString("nome"), result.getString("endereco"), result.getString("tel"), result.getString("email"), result.getString("cpf"), result.getString("rg"), result.getString("carteira"), result.getString("cargo"), result.getInt("id"), result.getString("login"), result.getString("senha"));
+                Funcionario f = new Funcionario(result.getString("nome"), result.getString("endereco"), result.getString("telefone"), result.getString("email_funcionario"), result.getString("cpf_funcionario"), result.getString("rg_funcionario"), result.getString("carteira_trabalho"), result.getString("cargo"), result.getInt("id_funcionario"), result.getString("login"), result.getString("senha"));
                 lista.add(f);
             }
 

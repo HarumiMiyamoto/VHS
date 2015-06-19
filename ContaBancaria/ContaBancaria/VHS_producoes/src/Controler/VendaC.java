@@ -31,7 +31,7 @@ public class VendaC {
     
      public ArrayList getAll() throws SQLException {
 
-            String sql = "SELECT * FROM Venda";
+            String sql = "SELECT * FROM Vendas";
 
             Util util = new Util();
             Connection conexao = util.conecta();
@@ -39,7 +39,7 @@ public class VendaC {
             ResultSet result = statement.executeQuery(sql);
             ArrayList<Venda> lista = new ArrayList<Venda>();
             while (result.next()) {
-                Venda v = new Venda (result.getString("data"), result.getInt("valor"));
+                Venda v = new Venda (result.getInt("IdVendas"), result.getInt("Funcionario_ID_funcionario"), result.getInt("Cliente_ID_cliente"), result.getString("data"), result.getInt("valor"));
                 lista.add(v);
             }
 

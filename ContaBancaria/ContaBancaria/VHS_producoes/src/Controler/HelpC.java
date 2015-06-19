@@ -14,7 +14,7 @@ public class HelpC {
     public void InserirHelp(Help h) throws SQLException{
         Util c = new Util();
         Connection conexao = c.conecta();
-        String sql = "INSERT INTO Funcionario(tipo) VALUES (?) ";
+        String sql = "INSERT INTO Help(Helpcol) VALUES (?) ";
         PreparedStatement statement = conexao.prepareStatement(sql);
 
         statement.setString(1, h.getTipo());     
@@ -39,7 +39,7 @@ public class HelpC {
             ResultSet result = statement.executeQuery(sql);
             ArrayList<Help> lista = new ArrayList<Help>();
             while (result.next()) {
-                Help h = new Help(result.getString("tipo"));
+                Help h = new Help(result.getString("Helpcol"), result.getInt("idHelp"));
                 lista.add(h);
             }
 

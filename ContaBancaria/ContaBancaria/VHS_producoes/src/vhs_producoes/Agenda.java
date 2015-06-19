@@ -51,8 +51,8 @@ public class Agenda {
         return ID_agenda;
     }
 
-    public void setId(int Id) {
-        this.ID_agenda = ID_agenda;
+    public void setId(int Id_agenda) {
+        this.ID_agenda = Id_agenda;
     }
 
     public int getIdFilmagem() {
@@ -64,11 +64,12 @@ public class Agenda {
     }
      
 
-    public Agenda(String local_gravacao, String hora, String data, String tipo_gravacao) {
+    public Agenda(String local_gravacao, String hora, String data, String tipo_gravacao, int id_Filmagem) {
         this.local_gravacao = local_gravacao;
         this.hora = hora;
         this.data = data;
         this.tipo_gravacao = tipo_gravacao;
+        this.idFilmagem = id_Filmagem;
     }
     
 }

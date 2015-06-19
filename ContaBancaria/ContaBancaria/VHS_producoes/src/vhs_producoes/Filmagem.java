@@ -48,5 +48,12 @@ public class Filmagem {
         this.Descr_filmagem = Descr_filmagem;
         this.data_entrega = data_entrega;
     }
+
+    public Filmagem(int idHelp, String Descr_filmagem, String data_entrega) {
+        this.idHelp = idHelp;
+        this.Descr_filmagem = Descr_filmagem;
+        this.data_entrega = data_entrega;
+    }
+    
     
 }

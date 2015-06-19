@@ -15,6 +15,8 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
      */
     public FuncionarioInt2() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -25,6 +27,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -118,36 +121,41 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(clienteCad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2)
-                            .addComponent(vendaCad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(filmagemCad, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                            .addComponent(agendaCad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(vendaCon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(clienteCon, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                                    .addComponent(filmagemCon, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                                    .addComponent(agendaCon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addComponent(jLabel2)
+                        .addGap(104, 104, 104)
+                        .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
+                        .addGap(22, 22, 22)
+                        .addComponent(clienteCad, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(clienteCon, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(vendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(vendaCon, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(filmagemCad, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(filmagemCon, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(agendaCad, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(agendaCon, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(sair))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
                         .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(sair)
-                .addGap(95, 95, 95))
+                .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(5, 5, 5)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,31 +165,32 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(clienteCad)
                     .addComponent(clienteCon))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(vendaCad)
                     .addComponent(vendaCon))
                 .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(filmagemCon)
-                    .addComponent(filmagemCad))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(agendaCon)
-                    .addComponent(agendaCad))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sair)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(filmagemCad)
+                    .addComponent(filmagemCon))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(agendaCad)
+                    .addComponent(agendaCon))
+                .addGap(11, 11, 11)
+                .addComponent(sair))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void clienteCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteCadActionPerformed
-       new ClienteCad().setVisible(true);
+        this.dispose();
+        new ClienteCad().setVisible(true);
     }//GEN-LAST:event_clienteCadActionPerformed
 
     private void clienteConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteConActionPerformed
+        this.dispose();        
         new ClienteAlt().setVisible(true);
     }//GEN-LAST:event_clienteConActionPerformed
 
@@ -190,27 +199,32 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
     }//GEN-LAST:event_sairActionPerformed
 
     private void vendaCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaCadActionPerformed
+        this.dispose();        
         new VendaInt().setVisible(true);
     }//GEN-LAST:event_vendaCadActionPerformed
 
     private void vendaConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaConActionPerformed
+        this.dispose();        
         new Vendacon().setVisible(true);
     }//GEN-LAST:event_vendaConActionPerformed
 
     private void filmagemCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filmagemCadActionPerformed
-       new  FilmagemCad().setVisible(true);
+        this.dispose();       
+        new  FilmagemCad().setVisible(true);
     }//GEN-LAST:event_filmagemCadActionPerformed
 
     private void filmagemConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filmagemConActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
         new  FilmagemCon().setVisible(true);
     }//GEN-LAST:event_filmagemConActionPerformed
 
     private void agendaCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agendaCadActionPerformed
+        this.dispose();        
         new AgendaCad().setVisible(true);
     }//GEN-LAST:event_agendaCadActionPerformed
 
     private void agendaConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agendaConActionPerformed
+        this.dispose();        
         new AgendaCon().setVisible(true);
     }//GEN-LAST:event_agendaConActionPerformed
 

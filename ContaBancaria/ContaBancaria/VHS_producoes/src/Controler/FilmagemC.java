@@ -14,9 +14,10 @@ public class FilmagemC {
     public void InserirFilmagem(Filmagem f) throws SQLException{
         Util c = new Util();
         Connection conexao = c.conecta();
-        String sql = "INSERT INTO Agenda(Descr_filmagem, data_entrega) VALUES (?, ?) ";
+        String sql = "INSERT INTO Filmagem(Help_idHelp,descre_filmagem, data_entrega) VALUES (?, ?,?) ";
         PreparedStatement statement = conexao.prepareStatement(sql);
 
+        statement.setInt(1, f.getIdHelp());
         statement.setString(2, f.getDescr_filmagem());
         statement.setString(3, f.getData_entrega());
 
@@ -40,7 +41,7 @@ public class FilmagemC {
             ResultSet result = statement.executeQuery(sql);
             ArrayList<Filmagem> lista = new ArrayList<Filmagem>();
             while (result.next()) {
-                Filmagem f = new Filmagem(result.getString("Descr_filmagem"), result.getString("data_entrega") );// inicializa agenda
+                Filmagem f = new Filmagem(result.getInt("idFilmagem"), result.getInt("Help_idHelp"), result.getString("descre_filmagem"), result.getString("data_entrega") );// inicializa agenda
                 lista.add(f);
             }
 

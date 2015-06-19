@@ -5,7 +5,7 @@
 package View.Gerente;
 
 import Controler.FuncionarioC;
-import View.Funcionario.Atualiza.AtualizarFU;
+import View.Atualiza.AtualizarFU;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,6 +24,8 @@ public class FuncionarioCon extends javax.swing.JFrame {
      */
     public FuncionarioCon() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -146,7 +148,8 @@ public class FuncionarioCon extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
-       new GerenteInt().setVisible(true);
+       this.dispose();
+        new GerenteInt().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 
     private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed

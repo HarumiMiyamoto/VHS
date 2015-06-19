@@ -14,6 +14,14 @@ public class Venda {
         this.valor=valor ;
     }
 
+    public Venda(int ID_funcionario, int ID_cliente, int idFilmagem, String data, int valor) {
+        this.ID_funcionario = ID_funcionario;
+        this.ID_cliente = ID_cliente;
+        this.idFilmagem = idFilmagem;
+        this.data = data;
+        this.valor = valor;
+    }
+
     public int getIdVendas() {
         return IdVendas;
     }
