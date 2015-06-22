@@ -43,7 +43,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
         agendaCon = new javax.swing.JButton();
         sair = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        outra = new javax.swing.JTextField();
+        outra = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,11 +121,9 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Funcionario/vhs_Clipart_Free.png"))); // NOI18N
 
-        outra.setBackground(new java.awt.Color(240, 240, 240));
         outra.setForeground(new java.awt.Color(0, 0, 255));
         outra.setText("Entrar com outra conta");
         outra.setBorder(null);
-        outra.setSelectionColor(new java.awt.Color(255, 0, 0));
         outra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outraActionPerformed(evt);
@@ -167,7 +165,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
                                     .addComponent(jLabel3)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(outra, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(outra)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(sair)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -202,9 +200,9 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
                     .addComponent(agendaCad)
                     .addComponent(agendaCon))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sair)
-                    .addComponent(outra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(outra))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -256,8 +254,8 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
     }//GEN-LAST:event_agendaConActionPerformed
 
     private void outraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outraActionPerformed
-        this.dispose();
-        new LoginInt().setVisible(true);
+       this.dispose();
+       new LoginInt().setVisible(true);
     }//GEN-LAST:event_outraActionPerformed
 
     /**
@@ -305,8 +303,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField outra;
+    private javax.swing.JButton outra;
     private javax.swing.JButton sair;
     private javax.swing.JButton vendaCad;
     private javax.swing.JButton vendaCon;
