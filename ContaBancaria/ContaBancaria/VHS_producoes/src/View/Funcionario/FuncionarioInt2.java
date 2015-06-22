@@ -54,6 +54,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
         jLabel2.setText("CADASTRAR:");
 
         clienteCad.setText("Cliente");
+        clienteCad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         clienteCad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clienteCadActionPerformed(evt);
@@ -61,6 +62,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
         });
 
         vendaCad.setText("Venda");
+        vendaCad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         vendaCad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vendaCadActionPerformed(evt);
@@ -68,6 +70,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
         });
 
         filmagemCad.setText("Filmagem");
+        filmagemCad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         filmagemCad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 filmagemCadActionPerformed(evt);
@@ -75,6 +78,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
         });
 
         agendaCad.setText("Agenda");
+        agendaCad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         agendaCad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agendaCadActionPerformed(evt);
@@ -85,6 +89,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
         jLabel3.setText("CONSULTAR:");
 
         clienteCon.setText("Cliente");
+        clienteCon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         clienteCon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clienteConActionPerformed(evt);
@@ -92,6 +97,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
         });
 
         vendaCon.setText("Venda");
+        vendaCon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         vendaCon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vendaConActionPerformed(evt);
@@ -99,6 +105,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
         });
 
         filmagemCon.setText("Filmagem");
+        filmagemCon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         filmagemCon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 filmagemConActionPerformed(evt);
@@ -106,6 +113,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
         });
 
         agendaCon.setText("Agenda");
+        agendaCon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         agendaCon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agendaConActionPerformed(evt);
@@ -113,6 +121,7 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
         });
 
         sair.setText("Sair");
+        sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sairActionPerformed(evt);
@@ -124,6 +133,9 @@ public class FuncionarioInt2 extends javax.swing.JFrame {
         outra.setForeground(new java.awt.Color(0, 0, 255));
         outra.setText("Entrar com outra conta");
         outra.setBorder(null);
+        outra.setBorderPainted(false);
+        outra.setContentAreaFilled(false);
+        outra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         outra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outraActionPerformed(evt);

@@ -85,6 +85,7 @@ public class GerenteInt extends javax.swing.JFrame {
         jLabel8.setText("ESCOLHA AS OPÇÕES:");
 
         jButton4.setText("Funcionário");
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -95,6 +96,7 @@ public class GerenteInt extends javax.swing.JFrame {
         jLabel9.setText("CADASTRAR:");
 
         jButton1.setText("Help");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -105,6 +107,7 @@ public class GerenteInt extends javax.swing.JFrame {
         jLabel1.setText("CONSULTAR:");
 
         jButton2.setText("Funcionário");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -112,6 +115,7 @@ public class GerenteInt extends javax.swing.JFrame {
         });
 
         jButton3.setText("Help");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -119,6 +123,7 @@ public class GerenteInt extends javax.swing.JFrame {
         });
 
         jButton5.setText("Sair");
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -130,6 +135,9 @@ public class GerenteInt extends javax.swing.JFrame {
         jButton6.setForeground(new java.awt.Color(0, 0, 255));
         jButton6.setText("Entrar com outra conta");
         jButton6.setBorder(null);
+        jButton6.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
