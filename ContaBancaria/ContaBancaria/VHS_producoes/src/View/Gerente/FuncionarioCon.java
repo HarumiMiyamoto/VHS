@@ -44,9 +44,11 @@ public class FuncionarioCon extends javax.swing.JFrame {
         voltar = new javax.swing.JButton();
         atualizar = new javax.swing.JButton();
         sair = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Rod", 1, 24)); // NOI18N
         jLabel1.setText("CONSULTAR FUNCIONARIO");
 
         tabelaF.setModel(new javax.swing.table.DefaultTableModel(
@@ -106,36 +108,47 @@ public class FuncionarioCon extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Gerente/vhs_Clipart_Free.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(voltar)
+                        .addContainerGap()
+                        .addComponent(voltar)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(atualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(listar)
-                        .addGap(199, 199, 199)
-                        .addComponent(sair)))
+                        .addGap(187, 187, 187)
+                        .addComponent(sair)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(246, 246, 246))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(listar)
                     .addComponent(voltar)
@@ -153,29 +166,29 @@ public class FuncionarioCon extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarActionPerformed
 
     private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed
-        FuncionarioC f = new FuncionarioC();
-        
-         ArrayList<Funcionario> lista;
         try {
-            lista = f.getAll();
-            int linha = 0, coluna = 0;
-            for (Funcionario lista1 : lista) {
-                tabelaF.setValueAt(lista1.getId(), linha, coluna );
-                tabelaF.setValueAt(lista1.getNome(), linha, coluna + 1);
-                tabelaF.setValueAt(lista1.getEndereco(), linha, coluna + 2);
-                tabelaF.setValueAt(lista1.getTel(), linha, coluna + 3); 
-                tabelaF.setValueAt(lista1.getRg(), linha, coluna + 4);  
-                tabelaF.setValueAt(lista1.getCpf(), linha, coluna + 5);
-                tabelaF.setValueAt(lista1.getCarteira(), linha, coluna + 6);                
-                tabelaF.setValueAt(lista1.getCargo(), linha, coluna + 7);
-                tabelaF.setValueAt(lista1.getlogin(), linha, coluna + 8);   
-                tabelaF.setValueAt(lista1.getSenha(), linha, coluna + 9);                
-                linha++;
-            }
+            FuncionarioC f = new FuncionarioC();
+            
+             ArrayList<Funcionario> lista = f.getAll();
 
+             int linha = 0, coluna = 0;
+                for (Funcionario lista1 : lista) {
+                    tabelaF.setValueAt(lista1.getId(), linha, coluna );
+                    tabelaF.setValueAt(lista1.getNome(), linha, coluna + 1);
+                    tabelaF.setValueAt(lista1.getEndereco(), linha, coluna + 2);
+                    tabelaF.setValueAt(lista1.getTel(), linha, coluna + 3); 
+                    tabelaF.setValueAt(lista1.getRg(), linha, coluna + 4);  
+                    tabelaF.setValueAt(lista1.getCpf(), linha, coluna + 5);
+                    tabelaF.setValueAt(lista1.getCarteira(), linha, coluna + 6);                
+                    tabelaF.setValueAt(lista1.getCargo(), linha, coluna + 7);
+                    tabelaF.setValueAt(lista1.getlogin(), linha, coluna + 8);   
+                    tabelaF.setValueAt(lista1.getSenha(), linha, coluna + 9);                
+                    linha++;
+                }
         } catch (SQLException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FuncionarioCon.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }//GEN-LAST:event_listarActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
@@ -223,6 +236,7 @@ public class FuncionarioCon extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atualizar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton listar;
     private javax.swing.JButton sair;
