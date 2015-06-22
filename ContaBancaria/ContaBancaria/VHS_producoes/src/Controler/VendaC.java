@@ -14,10 +14,14 @@ public class VendaC {
          public void InserirVenda(Venda v) throws SQLException{
         Util c = new Util();
         Connection conexao = c.conecta();
-        String sql = "INSERT INTO Venda(data, valor) VALUES (?, ?) ";
+        String sql = "INSERT INTO Vendas(data, valor, Funcionario_ID_funcionario, Filmagem_idfilmagem, Cliente_ID_Cliente) VALUES (?, ?, ?, ?, ?) ";
         PreparedStatement statement = conexao.prepareStatement(sql);       
         statement.setString(1, v.getData());
-                statement.setInt(2, v.getValor());
+        statement.setInt(2, v.getValor());
+        statement.setInt(3, v.getID_funcionario());
+        statement.setInt(4, v.getIdFilmagem());
+        statement.setInt(5, v.getID_cliente());
+        
 
         
         int rowsInserted = statement.executeUpdate();

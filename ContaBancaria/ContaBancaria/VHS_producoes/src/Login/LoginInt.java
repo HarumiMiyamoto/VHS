@@ -4,7 +4,7 @@ package Login;
 
 
 import Util.Util;
-import View.Gerente.FuncionarioInt;
+import View.Funcionario.FuncionarioInt2;
 import View.Gerente.GerenteInt;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -197,23 +197,26 @@ public class LoginInt extends javax.swing.JFrame {
             
             if (loginInput.getText().equals(result.getString("login")) && senhaInput.getText().equals(result.getString("senha")) && cargoInput.getText().equals(result.getString("cargo"))){
                 
-                if(cargoInput.getText().equals("gerente")){
-                        //chamar tela gerente aki
-                       this.dispose();                        
-                       new GerenteInt().setVisible(true);
-
-                    
-                   }else  if(cargoInput.getText().equals("funcionario")){
-                        //chamar tela funcionario
-                        new FuncionarioInt().setVisible(true);
-                       this.dispose();
-                    }  
-                  else {
-                       JOptionPane.showMessageDialog (null,"Permissão negaga  login ou senha incoreto");
-                   }
+ 
+                    switch (cargoInput.getText()) {
+                        case "funcionario":
+                            //chamar tela funcionario
+                            this.dispose();
+                            new FuncionarioInt2().setVisible(true);
+                            break;
+                        case "gerente":
+                            //chamar tela gerente aki
+                            this.dispose();
+                            new GerenteInt().setVisible(true);
+                            break;
+                        default:
+                            JOptionPane.showMessageDialog (null,"Permissão negaga  login ou senha incoreto");
+                            break;
+                    }
                  }
-
-        } catch (SQLException ex) {
+            }        
+             
+catch (SQLException ex) {
             Logger.getLogger(LoginInt.class.getName()).log(Level.SEVERE, null, ex);
         }
         
