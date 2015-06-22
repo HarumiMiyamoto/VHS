@@ -196,7 +196,8 @@ public class FuncionarioCon extends javax.swing.JFrame {
     }//GEN-LAST:event_sairActionPerformed
 
     private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
-       new AtualizarFU().setVisible(true);
+        this.dispose();
+        new AtualizarFU().setVisible(true);
     }//GEN-LAST:event_atualizarActionPerformed
 
     /**

@@ -167,6 +167,7 @@ public class ClienteAlt extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarActionPerformed
 
     private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
+        this.dispose();
         new AtualizarC().setVisible(true);
     }//GEN-LAST:event_atualizarActionPerformed
 

@@ -5,6 +5,7 @@
 package View.Funcionario;
 
 import Controler.VendaC;
+import View.Atualiza.AtualizarV;
 import java.security.Principal;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -96,6 +97,11 @@ public class Vendacon extends javax.swing.JFrame {
         });
 
         atualizar.setText("Atualizar");
+        atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Funcionario/vhs_Clipart_Free.png"))); // NOI18N
 
@@ -176,6 +182,11 @@ public class Vendacon extends javax.swing.JFrame {
         this.dispose();
         new FuncionarioInt2().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
+
+    private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
+        this.dispose();
+        new AtualizarV().setVisible(true);
+    }//GEN-LAST:event_atualizarActionPerformed
 
     /**
      * @param args the command line arguments

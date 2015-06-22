@@ -180,6 +180,7 @@ public class FilmagemCon extends javax.swing.JFrame {
     }//GEN-LAST:event_listarActionPerformed
 
     private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
+        this.dispose();
         new AtualizarF().setVisible(true);
     }//GEN-LAST:event_atualizarActionPerformed
 
